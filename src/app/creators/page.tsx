@@ -228,7 +228,7 @@ export default function CreatorProfilePage() {
                 className="group flex flex-col overflow-hidden rounded-3xl border border-zinc-200 bg-white shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-xl"
               >
                 {/* Card Thumbnail */}
-                <div className="relative h-52 w-full overflow-hidden bg-zinc-100 p-3">
+                <div className="relative h-52 w-full overflow-hidden p-3">
                   <div className="relative h-full w-full overflow-hidden rounded-2xl">
                     <Image
                       src={course.image}
@@ -236,19 +236,6 @@ export default function CreatorProfilePage() {
                       fill
                       className="object-cover transition-transform duration-500 group-hover:scale-105"
                     />
-
-                    {/* Tags Pills on bottom of image */}
-                    <div className="absolute bottom-2.5 left-2.5 right-2.5 flex items-center justify-between gap-1">
-                      <span className="rounded-full bg-black/40 backdrop-blur-md px-2.5 py-1 text-[10px] font-medium text-white border border-white/10">
-                        {course.lessons} Lessons
-                      </span>
-                      <span className="rounded-full bg-black/40 backdrop-blur-md px-2.5 py-1 text-[10px] font-medium text-white border border-white/10">
-                        {course.duration}
-                      </span>
-                      <span className="rounded-full bg-black/40 backdrop-blur-md px-2.5 py-1 text-[10px] font-medium text-white border border-white/10">
-                        {course.comments} Comments
-                      </span>
-                    </div>
                   </div>
                 </div>
 

@@ -12,9 +12,6 @@ import {
   ChevronLeft,
   ChevronRight,
   Star,
-  BookOpen,
-  Clock,
-  MessageSquare,
   BarChart2,
 } from "lucide-react";
 
@@ -126,54 +123,81 @@ export default function CoursesPage() {
           </div>
 
           {/* Course grid */}
-          <div className="mt-6 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+          <div className="mt-6 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
             {paginated.map((course, idx) => (
               <Link
                 key={idx}
                 href={`/courses/${course.slug}`}
-                className="group rounded-2xl bg-white border border-zinc-100 overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 hover:-translate-y-1"
+                className="group flex flex-col overflow-hidden rounded-3xl border border-zinc-200 bg-white shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-xl"
               >
-                {/* Image */}
-                <div className="relative h-44 bg-zinc-100 overflow-hidden">
-                  <Image src={course.image} alt={course.title} fill className="object-cover transition-transform duration-300 group-hover:scale-105" />
-                  {/* Badges */}
-                  <div className="absolute bottom-2 left-2 flex items-center gap-1 flex-wrap">
-                    <span className="rounded-full bg-black/60 px-2 py-0.5 text-[8px] text-white font-semibold flex items-center gap-0.5">
-                      <BookOpen className="w-2 h-2" /> {course.lessons} Lessons
-                    </span>
-                    <span className="rounded-full bg-black/60 px-2 py-0.5 text-[8px] text-white font-semibold flex items-center gap-0.5">
-                      <Clock className="w-2 h-2" /> {course.duration}
-                    </span>
-                    <span className="rounded-full bg-black/60 px-2 py-0.5 text-[8px] text-white font-semibold flex items-center gap-0.5">
-                      <MessageSquare className="w-2 h-2" /> {course.comments} Comments
-                    </span>
+                {/* Card Thumbnail */}
+                <div className="relative h-52 w-full overflow-hidden p-3">
+                  <div className="relative h-full w-full overflow-hidden rounded-2xl">
+                    <Image
+                      src={course.image}
+                      alt={course.title}
+                      fill
+                      className="object-cover transition-transform duration-500 group-hover:scale-105"
+                    />
                   </div>
                 </div>
 
-                {/* Body */}
-                <div className="p-4">
-                  <div className="flex items-start justify-between gap-2">
-                    <p className="text-sm font-extrabold text-zinc-900 leading-snug line-clamp-1">{course.title}</p>
-                    <span className="flex items-center gap-0.5 text-xs font-bold text-amber-500 shrink-0">
-                      {course.rating} <Star className="w-3 h-3 fill-amber-400 text-amber-400" />
+                {/* Card Body */}
+                <div className="flex flex-1 flex-col justify-between p-5 pt-3">
+                  <div>
+                    {/* Title + Rating */}
+                    <div className="flex items-start justify-between gap-2">
+                      <p className="font-bold text-base text-zinc-900 line-clamp-1 group-hover:text-[#1852fe] transition-colors">
+                        {course.title}
+                      </p>
+                      <div className="flex items-center gap-1 shrink-0 text-xs font-bold text-zinc-600">
+                        <span>{course.rating}</span>
+                        <Star className="w-3.5 h-3.5 fill-amber-400 text-amber-400" />
+                      </div>
+                    </div>
+
+                    <p className="mt-1 text-xs text-zinc-400 font-medium">
+                      by <span className="text-zinc-600">{course.author}</span>
+                    </p>
+
+                    {/* Level Badge + Enrolled Avatars */}
+                    <div className="mt-4 flex items-center justify-between">
+                      <span className="inline-flex items-center gap-1.5 rounded-full bg-zinc-100 px-3 py-1 text-xs font-semibold text-zinc-600">
+                        <BarChart2 className="w-3 h-3 text-zinc-400" />
+                        {course.level}
+                      </span>
+
+                      {/* Avatars Stack */}
+                      <div className="flex items-center -space-x-2">
+                        <div className="relative h-6 w-6 rounded-full border-2 border-white overflow-hidden">
+                          <Image src="/avatars/avatar-1.jpg" alt="Student" fill className="object-cover" />
+                        </div>
+                        <div className="relative h-6 w-6 rounded-full border-2 border-white overflow-hidden">
+                          <Image src="/avatars/avatar-2.jpg" alt="Student" fill className="object-cover" />
+                        </div>
+                        <div className="relative h-6 w-6 rounded-full border-2 border-white overflow-hidden">
+                          <Image src="/avatars/avatar-3.jpg" alt="Student" fill className="object-cover" />
+                        </div>
+                        <div className="flex h-6 w-6 items-center justify-center rounded-full border-2 border-white bg-[#d2fc00] text-[9px] font-bold text-zinc-900">
+                          26+
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  {/* Price & Action */}
+                  <div className="mt-5 pt-3 border-t border-zinc-100 flex items-center justify-between">
+                    <div>
+                      <span className="text-lg font-extrabold text-[#1852fe]">
+                        ${course.price}
+                      </span>
+                      <span className="text-xs text-zinc-400">/lifetime</span>
+                    </div>
+
+                    <span className="rounded-full bg-[#1852fe] group-hover:bg-[#1242d4] px-4 py-1.5 text-xs font-bold text-white transition-colors">
+                      Enroll
                     </span>
                   </div>
-                  <p className="text-[10px] text-[#1852fe] font-semibold mt-0.5">by {course.author}</p>
-                  <div className="mt-2 flex items-center justify-between">
-                    <div className="flex items-center gap-1.5">
-                      <BarChart2 className="w-3 h-3 text-zinc-400" />
-                      <span className="text-[10px] font-semibold text-zinc-500">{course.level}</span>
-                    </div>
-                    <div className="flex -space-x-1.5">
-                      {["bg-blue-500","bg-amber-500","bg-purple-500","bg-emerald-500"].map((bg,i) => (
-                        <div key={i} className={`h-5 w-5 rounded-full border border-white ${bg}`} />
-                      ))}
-                      <div className="h-5 w-5 rounded-full border border-white bg-zinc-800 text-white text-[7px] flex items-center justify-center font-black">26+</div>
-                    </div>
-                  </div>
-                  <p className="mt-2 text-sm font-black text-[#1852fe]">
-                    ${course.price}<span className="text-[10px] font-medium text-zinc-400">/lifetime</span>
-                  </p>
                 </div>
               </Link>
             ))}

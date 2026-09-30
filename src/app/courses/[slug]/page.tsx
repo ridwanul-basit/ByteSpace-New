@@ -153,11 +153,10 @@ export default function CourseDetailPage() {
                   <button
                     key={tab}
                     onClick={() => setActiveTab(tab)}
-                    className={`px-5 py-2.5 text-sm font-semibold capitalize transition border-b-2 cursor-pointer ${
-                      activeTab === tab
+                    className={`px-5 py-2.5 text-sm font-semibold capitalize transition border-b-2 cursor-pointer ${activeTab === tab
                         ? "border-[#1852fe] text-[#1852fe]"
                         : "border-transparent text-zinc-500 hover:text-zinc-800"
-                    }`}
+                      }`}
                   >
                     {tab === "reviews" ? "Reviews" : tab.charAt(0).toUpperCase() + tab.slice(1)}
                   </button>
@@ -287,7 +286,7 @@ function AboutTab() {
         <div className="mt-3 flex gap-3 overflow-x-auto pb-2">
           {SNEAK_PEEK_IMAGES.map((src, i) => (
             <div key={i} className="shrink-0 w-24 h-20 rounded-xl overflow-hidden bg-zinc-100 relative">
-              <Image src={src} alt={`Preview ${i+1}`} fill className="object-cover" />
+              <Image src={src} alt={`Preview ${i + 1}`} fill className="object-cover" />
             </div>
           ))}
         </div>
@@ -299,7 +298,9 @@ function AboutTab() {
         <div className="mt-3 space-y-2.5">
           {KEY_POINTS.map((point) => (
             <div key={point} className="flex items-center gap-2.5">
-              <CheckCircle2 className="w-4 h-4 text-[#1852fe] shrink-0" />
+              <CheckCircle2
+                className="w-4 h-4 shrink-0 fill-[#1852fe] stroke-white"
+              />
               <span className="text-sm text-zinc-700">{point}</span>
             </div>
           ))}
@@ -404,7 +405,7 @@ function ReviewsTab() {
             <p className="text-[10px] font-semibold text-zinc-500 uppercase">Rating</p>
             <p className="text-4xl font-black text-zinc-900">4.7</p>
             <div className="mt-1 flex gap-0.5">
-              {[1,2,3,4,5].map(i => <Star key={i} className={`w-3 h-3 ${i <= 4 ? "fill-amber-400 text-amber-400" : "text-zinc-300"}`} />)}
+              {[1, 2, 3, 4, 5].map(i => <Star key={i} className={`w-3 h-3 ${i <= 4 ? "fill-amber-400 text-amber-400" : "text-zinc-300"}`} />)}
             </div>
           </div>
         </div>
@@ -413,7 +414,7 @@ function ReviewsTab() {
           {ratingBreakdown.map((r) => (
             <div key={r.stars} className="flex items-center gap-2">
               <div className="flex gap-0.5 w-20 justify-end">
-                {[1,2,3,4,5].map(i => <Star key={i} className={`w-3 h-3 ${i <= r.stars ? "fill-amber-400 text-amber-400" : "text-zinc-200"}`} />)}
+                {[1, 2, 3, 4, 5].map(i => <Star key={i} className={`w-3 h-3 ${i <= r.stars ? "fill-amber-400 text-amber-400" : "text-zinc-200"}`} />)}
               </div>
               <div className="flex-1 h-1.5 bg-zinc-100 rounded-full overflow-hidden">
                 <div className="h-full bg-amber-400 rounded-full" style={{ width: `${(r.count / total) * 100}%` }} />
@@ -432,11 +433,10 @@ function ReviewsTab() {
             <button
               key={f}
               onClick={() => setFilterRating(f)}
-              className={`rounded-full px-4 py-1.5 text-xs font-bold border transition cursor-pointer ${
-                filterRating === f
+              className={`rounded-full px-4 py-1.5 text-xs font-bold border transition cursor-pointer ${filterRating === f
                   ? "bg-[#1852fe] text-white border-[#1852fe]"
                   : "bg-white text-zinc-600 border-zinc-200 hover:border-[#1852fe]"
-              }`}
+                }`}
             >
               {f}
             </button>
@@ -461,7 +461,7 @@ function ReviewsTab() {
               <span className="text-[10px] text-zinc-400">{review.time}</span>
             </div>
             <div className="mt-2 flex gap-0.5">
-              {[1,2,3,4,5].map(i => <Star key={i} className={`w-3 h-3 ${i <= review.rating ? "fill-amber-400 text-amber-400" : "text-zinc-200"}`} />)}
+              {[1, 2, 3, 4, 5].map(i => <Star key={i} className={`w-3 h-3 ${i <= review.rating ? "fill-amber-400 text-amber-400" : "text-zinc-200"}`} />)}
             </div>
             <p className="mt-3 text-sm text-zinc-600 leading-relaxed">{review.text}</p>
           </div>
