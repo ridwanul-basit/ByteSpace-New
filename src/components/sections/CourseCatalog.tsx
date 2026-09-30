@@ -49,11 +49,10 @@ export const CourseCatalog: React.FC<CourseCatalogProps> = ({ searchQuery = "" }
               <button
                 key={tab}
                 onClick={() => setActiveTab(tab)}
-                className={`rounded-full px-4 sm:px-5 py-2 text-xs sm:text-sm font-semibold transition-all duration-200 cursor-pointer ${
-                  isActive
+                className={`rounded-full px-4 sm:px-5 py-2 text-xs sm:text-sm font-semibold transition-all duration-200 cursor-pointer ${isActive
                     ? "bg-[#d2fc00] text-black shadow-sm scale-105"
                     : "border border-zinc-200/90 bg-zinc-50/80 text-zinc-600 hover:bg-zinc-100 hover:text-zinc-900"
-                }`}
+                  }`}
               >
                 {tab}
               </button>
@@ -75,7 +74,7 @@ export const CourseCatalog: React.FC<CourseCatalogProps> = ({ searchQuery = "" }
               className="group flex flex-col overflow-hidden rounded-3xl border border-zinc-200 bg-white shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-xl"
             >
               {/* Card Thumbnail */}
-              <div className="relative h-52 w-full overflow-hidden bg-zinc-100 p-3">
+              <div className="relative h-52 w-full overflow-hidden  p-3">
                 <div className="relative h-full w-full overflow-hidden rounded-2xl">
                   <Image
                     src={course.image}
