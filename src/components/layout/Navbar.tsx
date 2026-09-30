@@ -2,6 +2,7 @@
 
 import React, { useState } from "react";
 import Link from "next/link";
+import Image from "next/image";
 import { Menu, X, ArrowRight, ShoppingBag } from "lucide-react";
 
 export const Navbar: React.FC = () => {
@@ -12,20 +13,15 @@ export const Navbar: React.FC = () => {
       <div className="mx-auto flex h-20 max-w-7xl items-center justify-between px-4 sm:px-6 lg:px-8">
         {/* Brand Logo */}
         <Link href="/" className="flex items-center gap-2.5 group">
-          <div className="flex h-9 w-9 items-center justify-center rounded-xl bg-[#d2fc00] shadow-sm transition-transform duration-200 group-hover:scale-105">
-            <svg
-              viewBox="0 0 24 24"
-              fill="none"
-              className="w-5 h-5"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <rect x="4" y="4" width="7" height="7" rx="2" fill="#0f172a" />
-              <rect x="13" y="4" width="7" height="7" rx="2" fill="#1852fe" />
-              <rect x="4" y="13" width="7" height="7" rx="2" fill="#1852fe" />
-              <rect x="13" y="13" width="7" height="7" rx="2" fill="#0f172a" />
-            </svg>
-          </div>
-          <span className="font-extrabold text-2xl tracking-tight text-white">
+          <Image
+            src="/Vector (5).png"
+            alt="ByteSpace logo"
+            width={36}
+            height={36}
+            className="h-9 w-auto object-contain transition-transform duration-200 group-hover:scale-105"
+            priority
+          />
+          <span className="font-extrabold text-2xl tracking-tight text-white font-heading">
             ByteSpace
           </span>
         </Link>

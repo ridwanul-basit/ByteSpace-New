@@ -7,30 +7,41 @@ export const GrowthSplit: React.FC = () => {
   return (
     <section className="relative overflow-hidden bg-white py-24 sm:py-32">
 
-      {/* ── AMBIENT GLOWS MATCHING PIC 1 ── */}
-      <div className="pointer-events-none absolute inset-0 z-0">
-        {/* Lime radial aura top-right */}
+      {/* ── AMBIENT GLOWS MATCHING FIGMA REFERENCE ── */}
+      <div className="pointer-events-none absolute inset-0 z-0 overflow-hidden">
+        {/* Top Lime / Chartreuse glow */}
         <div
-          className="absolute -top-24 -right-24 w-[750px] h-[750px] rounded-full"
+          className="absolute -top-32 left-[10%] sm:left-[20%] w-[650px] sm:w-[800px] h-[550px] rounded-full blur-[100px] sm:blur-[120px] pointer-events-none opacity-80"
           style={{
             background:
-              "radial-gradient(circle, rgba(210,252,0,0.35) 0%, rgba(210,252,0,0.15) 35%, rgba(210,252,0,0.03) 60%, transparent 75%)",
+              "radial-gradient(circle, rgba(210,252,0,0.55) 0%, rgba(210,252,0,0.25) 45%, transparent 70%)",
           }}
         />
-        {/* Lime radial aura bottom-left */}
+
+        {/* Mid-Left Soft Blue / Periwinkle ambient glow */}
         <div
-          className="absolute -bottom-32 -left-32 w-[850px] h-[850px] rounded-full"
+          className="absolute top-[32%] -left-32 w-[550px] h-[550px] rounded-full blur-[90px] sm:blur-[110px] pointer-events-none opacity-70"
           style={{
             background:
-              "radial-gradient(circle, rgba(210,252,0,0.45) 0%, rgba(210,252,0,0.18) 35%, rgba(210,252,0,0.04) 65%, transparent 80%)",
+              "radial-gradient(circle, rgba(96,134,247,0.32) 0%, rgba(24,82,254,0.14) 40%, transparent 70%)",
           }}
         />
-        {/* Soft blue ambient glow bottom-right */}
+
+        {/* Bottom-Left Vibrant Lime Green glow */}
         <div
-          className="absolute bottom-0 right-0 w-1/2 h-1/2 rounded-full"
+          className="absolute -bottom-28 -left-28 w-[650px] sm:w-[800px] h-[650px] sm:h-[800px] rounded-full blur-[100px] sm:blur-[120px] pointer-events-none opacity-85"
           style={{
             background:
-              "radial-gradient(circle, rgba(24,82,254,0.07) 0%, transparent 70%)",
+              "radial-gradient(circle, rgba(210,252,0,0.65) 0%, rgba(210,252,0,0.28) 45%, transparent 75%)",
+          }}
+        />
+
+        {/* Bottom-Right Soft Blue / Periwinkle ambient glow */}
+        <div
+          className="absolute -bottom-32 -right-28 w-[650px] sm:w-[850px] h-[650px] sm:h-[850px] rounded-full blur-[100px] sm:blur-[120px] pointer-events-none opacity-75"
+          style={{
+            background:
+              "radial-gradient(circle, rgba(96,134,247,0.38) 0%, rgba(24,82,254,0.16) 45%, transparent 75%)",
           }}
         />
       </div>
@@ -73,7 +84,7 @@ export const GrowthSplit: React.FC = () => {
             <div className="relative w-full max-w-[440px] h-[460px] flex items-center justify-center">
 
               {/* LAYER 0 (z-0): White card backdrop frame */}
-              <div className="absolute inset-x-8 inset-y-4 rounded-[2.5rem]  z-0" />
+              <div className="absolute inset-x-6 sm:inset-x-8 inset-y-3 rounded-[2.5rem] z-0" />
 
               {/* LAYER 1 (z-[5]): 3D Lime Squiggle behind top-right */}
               <div className="absolute -top-4 right-0 z-[5] pointer-events-none">
@@ -167,7 +178,7 @@ export const GrowthSplit: React.FC = () => {
             <div className="relative w-full max-w-[440px] h-[480px] flex items-center justify-center lg:justify-start">
 
               {/* LAYER 0 (z-0): White card backdrop frame */}
-              <div className="absolute right-0 sm:right-4 inset-y-4 w-[280px] sm:w-[320px] rounded-[2.5rem] z-0" />
+              <div className="absolute right-0 sm:right-4 inset-y-3 w-[280px] sm:w-[320px] rounded-[2.5rem] z-0" />
 
               {/* LAYER 1 (z-[5]): 3D Lime Squiggle behind top-right of woman */}
               <div className="absolute top-6 right-2 sm:right-4 z-[5] pointer-events-none">

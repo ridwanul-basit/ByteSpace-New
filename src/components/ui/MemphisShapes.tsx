@@ -6,175 +6,272 @@ function uid() {
   return `ms-${++_uid}`;
 }
 
-// ── Lime 3D Cylinder (standing upright, pill-shaped) ──────────────────────────
-export const LimeCylinder: React.FC<{ className?: string }> = ({ className = "" }) => {
-  const g = uid(); const s = uid();
-  return (
-    <svg viewBox="0 0 80 120" fill="none" xmlns="http://www.w3.org/2000/svg" className={className}>
-      <defs>
-        <linearGradient id={g} x1="0" y1="0" x2="1" y2="0">
-          <stop offset="0%"  stopColor="#f0ff60" />
-          <stop offset="45%" stopColor="#d2fc00" />
-          <stop offset="100%" stopColor="#9fc800" />
-        </linearGradient>
-        <filter id={s}>
-          <feDropShadow dx="3" dy="8" stdDeviation="6" floodColor="#000" floodOpacity="0.18"/>
-        </filter>
-      </defs>
-      <g filter={`url(#${s})`}>
-        {/* body */}
-        <path d="M10 30 Q10 18 40 18 Q70 18 70 30 L70 88 Q70 100 40 100 Q10 100 10 88 Z" fill={`url(#${g})`}/>
-        {/* top cap highlight ellipse */}
-        <ellipse cx="40" cy="30" rx="30" ry="12" fill="#eeff80"/>
-        {/* subtle shadow bottom */}
-        <ellipse cx="40" cy="88" rx="30" ry="12" fill="#a5cc00" opacity="0.55"/>
-      </g>
-    </svg>
-  );
-};
-
-// ── Lime Squiggle / S-Worm ─────────────────────────────────────────────────────
+// ── 1. Top-Left: Large Lime 3D Zigzag / Coil Ribbon ──────────────────────────
 export const LimeSquiggle: React.FC<{ className?: string }> = ({ className = "" }) => {
-  const g = uid(); const s = uid();
+  const g1 = uid(); const s = uid(); const h = uid();
   return (
-    <svg viewBox="0 0 90 120" fill="none" xmlns="http://www.w3.org/2000/svg" className={className}>
+    <svg viewBox="0 0 160 220" fill="none" xmlns="http://www.w3.org/2000/svg" className={className}>
       <defs>
-        <linearGradient id={g} x1="0" y1="0" x2="0" y2="1">
-          <stop offset="0%"  stopColor="#eeff6a" />
-          <stop offset="50%" stopColor="#d2fc00" />
-          <stop offset="100%" stopColor="#90c200" />
+        <linearGradient id={g1} x1="0%" y1="0%" x2="100%" y2="100%">
+          <stop offset="0%" stopColor="#f7ff66" />
+          <stop offset="40%" stopColor="#d2fc00" />
+          <stop offset="85%" stopColor="#92bf00" />
+          <stop offset="100%" stopColor="#6e9400" />
         </linearGradient>
-        <filter id={s}>
-          <feDropShadow dx="3" dy="6" stdDeviation="5" floodColor="#000" floodOpacity="0.22"/>
+        <linearGradient id={h} x1="0%" y1="0%" x2="0%" y2="100%">
+          <stop offset="0%" stopColor="#ffffff" stopOpacity="0.8" />
+          <stop offset="100%" stopColor="#d2fc00" stopOpacity="0" />
+        </linearGradient>
+        <filter id={s} x="-20%" y="-20%" width="150%" height="150%">
+          <feDropShadow dx="8" dy="16" stdDeviation="12" floodColor="#00186b" floodOpacity="0.38"/>
         </filter>
       </defs>
       <g filter={`url(#${s})`}>
+        {/* Main 3D volumetric coil path */}
         <path
-          d="M15 100 C 18 70 40 68 50 88 C 60 108 82 102 82 75 C 82 48 58 38 64 12"
-          stroke={`url(#${g})`}
-          strokeWidth="20"
+          d="M 125 35
+             C 145 45, 140 75, 110 90
+             L 45 125
+             C 20 138, 20 165, 45 178
+             L 105 205"
+          stroke={`url(#${g1})`}
+          strokeWidth="38"
           strokeLinecap="round"
+          strokeLinejoin="round"
           fill="none"
         />
-      </g>
-    </svg>
-  );
-};
-
-// ── White 3D Torus / Donut Ring ───────────────────────────────────────────────
-export const WhiteTorus: React.FC<{ className?: string }> = ({ className = "" }) => {
-  const rg = uid(); const s = uid(); const bg = uid();
-  return (
-    <svg viewBox="0 0 120 80" fill="none" xmlns="http://www.w3.org/2000/svg" className={className}>
-      <defs>
-        <radialGradient id={rg} cx="38%" cy="32%" r="68%">
-          <stop offset="0%"   stopColor="#ffffff"/>
-          <stop offset="55%"  stopColor="#dde6f5"/>
-          <stop offset="100%" stopColor="#b8c8dc"/>
-        </radialGradient>
-        <radialGradient id={bg} cx="50%" cy="50%" r="50%">
-          <stop offset="0%"   stopColor="#1a50e8"/>
-          <stop offset="100%" stopColor="#1234bb"/>
-        </radialGradient>
-        <filter id={s}>
-          <feDropShadow dx="0" dy="6" stdDeviation="7" floodColor="#000" floodOpacity="0.18"/>
-        </filter>
-      </defs>
-      <g filter={`url(#${s})`} transform="rotate(-15 60 40)">
-        {/* outer donut */}
-        <ellipse cx="60" cy="40" rx="52" ry="36" fill={`url(#${rg})`}/>
-        {/* inner hole */}
-        <ellipse cx="60" cy="40" rx="24" ry="16" fill={`url(#${bg})`}/>
-        {/* highlight arc top-left */}
-        <path d="M 22 28 Q 40 12 62 18" stroke="#fff" strokeWidth="5" fill="none" strokeLinecap="round" opacity="0.5"/>
-      </g>
-    </svg>
-  );
-};
-
-// ── White 3D Right-Pointing Arrow / Prism ─────────────────────────────────────
-// Matches the Figma "pointing right" white 3D shape in hero right-middle
-export const WhitePrism: React.FC<{ className?: string }> = ({ className = "" }) => {
-  const s = uid(); const gL = uid(); const gR = uid();
-  return (
-    <svg viewBox="0 0 100 80" fill="none" xmlns="http://www.w3.org/2000/svg" className={className}>
-      <defs>
-        <linearGradient id={gL} x1="0" y1="0" x2="0" y2="1">
-          <stop offset="0%"  stopColor="#ffffff"/>
-          <stop offset="100%" stopColor="#e8eef8"/>
-        </linearGradient>
-        <linearGradient id={gR} x1="0" y1="0" x2="0" y2="1">
-          <stop offset="0%"  stopColor="#d8e4f0"/>
-          <stop offset="100%" stopColor="#9fb8cc"/>
-        </linearGradient>
-        <filter id={s}>
-          <feDropShadow dx="3" dy="5" stdDeviation="4" floodColor="#000" floodOpacity="0.20"/>
-        </filter>
-      </defs>
-      <g filter={`url(#${s})`} transform="rotate(-10 50 40)">
-        {/* top face */}
-        <polygon points="10,52 50,10 90,52" fill={`url(#${gL})`}/>
-        {/* bottom/right shadow face */}
-        <polygon points="10,52 50,70 90,52" fill={`url(#${gR})`}/>
-        {/* highlight edge */}
-        <line x1="10" y1="52" x2="90" y2="52" stroke="#fff" strokeWidth="1.5" opacity="0.6"/>
-      </g>
-    </svg>
-  );
-};
-
-// ── White Zigzag / Lightning Spring ──────────────────────────────────────────
-export const WhiteZigzag: React.FC<{ className?: string }> = ({ className = "" }) => {
-  const s = uid();
-  return (
-    <svg viewBox="0 0 60 110" fill="none" xmlns="http://www.w3.org/2000/svg" className={className}>
-      <defs>
-        <filter id={s}>
-          <feDropShadow dx="2" dy="5" stdDeviation="4" floodColor="#000" floodOpacity="0.22"/>
-        </filter>
-      </defs>
-      <g filter={`url(#${s})`}>
-        <polyline
-          points="10,10 50,30 10,50 50,70 10,90"
+        {/* Specular highlight ridge on top */}
+        <path
+          d="M 120 30
+             C 138 38, 134 65, 108 78
+             L 48 112
+             C 28 122, 28 145, 48 156
+             L 100 180"
           stroke="white"
           strokeWidth="10"
           strokeLinecap="round"
           strokeLinejoin="round"
           fill="none"
+          opacity="0.55"
         />
       </g>
     </svg>
   );
 };
 
-// ── White Spiral S-Ribbon ─────────────────────────────────────────────────────
-export const WhiteSpiral: React.FC<{ className?: string }> = ({ className = "" }) => {
-  const s = uid();
+// ── 2. Middle-Left: White 3D Wavy Spring / Zigzag ─────────────────────────────
+export const WhiteZigzag: React.FC<{ className?: string }> = ({ className = "" }) => {
+  const g = uid(); const s = uid();
   return (
-    <svg viewBox="0 0 80 120" fill="none" xmlns="http://www.w3.org/2000/svg" className={className}>
+    <svg viewBox="0 0 120 140" fill="none" xmlns="http://www.w3.org/2000/svg" className={className}>
       <defs>
-        <filter id={s}>
-          <feDropShadow dx="2" dy="6" stdDeviation="5" floodColor="#000" floodOpacity="0.22"/>
+        <linearGradient id={g} x1="0%" y1="0%" x2="100%" y2="100%">
+          <stop offset="0%" stopColor="#ffffff" />
+          <stop offset="60%" stopColor="#edf3fb" />
+          <stop offset="100%" stopColor="#b4cbe6" />
+        </linearGradient>
+        <filter id={s} x="-25%" y="-25%" width="160%" height="160%">
+          <feDropShadow dx="6" dy="12" stdDeviation="8" floodColor="#001a75" floodOpacity="0.35"/>
         </filter>
       </defs>
       <g filter={`url(#${s})`}>
         <path
-          d="M15 20 C 40 5, 68 18, 65 42 C 62 66, 20 60, 18 80 C 16 100, 55 105, 65 100"
-          stroke="white"
-          strokeWidth="12"
+          d="M 28 32
+             L 75 48
+             L 32 78
+             L 80 94
+             L 42 120"
+          stroke={`url(#${g})`}
+          strokeWidth="24"
           strokeLinecap="round"
+          strokeLinejoin="round"
           fill="none"
+        />
+        {/* Highlight on top edge */}
+        <path
+          d="M 28 28
+             L 72 44
+             L 34 74
+             L 78 89
+             L 44 114"
+          stroke="#ffffff"
+          strokeWidth="6"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+          fill="none"
+          opacity="0.8"
         />
       </g>
     </svg>
   );
 };
 
-// ── Lime Torus Ring (used in Creator CTA bottom) ──────────────────────────────
+// ── 3. Bottom-Left: Volumetric White 3D Torus Ring ────────────────────────────
+export const WhiteTorus: React.FC<{ className?: string }> = ({ className = "" }) => {
+  const rg = uid(); const bg = uid(); const s = uid();
+  return (
+    <svg viewBox="0 0 160 120" fill="none" xmlns="http://www.w3.org/2000/svg" className={className}>
+      <defs>
+        <linearGradient id={rg} x1="20%" y1="10%" x2="80%" y2="90%">
+          <stop offset="0%" stopColor="#ffffff"/>
+          <stop offset="45%" stopColor="#f2f6fc"/>
+          <stop offset="80%" stopColor="#c8d8ec"/>
+          <stop offset="100%" stopColor="#9fb7d6"/>
+        </linearGradient>
+        <radialGradient id={bg} cx="45%" cy="40%" r="60%">
+          <stop offset="0%" stopColor="#0d3cb8"/>
+          <stop offset="70%" stopColor="#1852fe"/>
+          <stop offset="100%" stopColor="#1240c9"/>
+        </radialGradient>
+        <filter id={s} x="-30%" y="-30%" width="170%" height="170%">
+          <feDropShadow dx="8" dy="16" stdDeviation="14" floodColor="#00186b" floodOpacity="0.40"/>
+        </filter>
+      </defs>
+      <g filter={`url(#${s})`} transform="rotate(-18 80 60)">
+        {/* Outer Donut body */}
+        <ellipse cx="80" cy="60" rx="68" ry="46" fill={`url(#${rg})`}/>
+        {/* Inner hole */}
+        <ellipse cx="80" cy="60" rx="30" ry="20" fill={`url(#${bg})`}/>
+        {/* Inner hole shadow overlay for 3D depth */}
+        <ellipse cx="80" cy="58" rx="29" ry="18" fill="none" stroke="#7a98c2" strokeWidth="5" opacity="0.6"/>
+        {/* Specular highlight crescent */}
+        <path
+          d="M 32 44 C 45 24, 95 20, 130 38"
+          stroke="#ffffff"
+          strokeWidth="7"
+          strokeLinecap="round"
+          fill="none"
+          opacity="0.8"
+        />
+      </g>
+    </svg>
+  );
+};
+
+// ── 4. Top-Right: Lime 3D Cylinder / Pillar ──────────────────────────────────
+export const LimeCylinder: React.FC<{ className?: string }> = ({ className = "" }) => {
+  const g = uid(); const topG = uid(); const s = uid();
+  return (
+    <svg viewBox="0 0 120 180" fill="none" xmlns="http://www.w3.org/2000/svg" className={className}>
+      <defs>
+        <linearGradient id={g} x1="0%" y1="0%" x2="100%" y2="0%">
+          <stop offset="0%" stopColor="#f5ff6c" />
+          <stop offset="40%" stopColor="#d2fc00" />
+          <stop offset="85%" stopColor="#8ebc00" />
+          <stop offset="100%" stopColor="#678c00" />
+        </linearGradient>
+        <linearGradient id={topG} x1="0%" y1="0%" x2="0%" y2="100%">
+          <stop offset="0%" stopColor="#ffffff" />
+          <stop offset="50%" stopColor="#f5ff75" />
+          <stop offset="100%" stopColor="#d2fc00" />
+        </linearGradient>
+        <filter id={s} x="-30%" y="-20%" width="170%" height="150%">
+          <feDropShadow dx="8" dy="18" stdDeviation="12" floodColor="#00186b" floodOpacity="0.40"/>
+        </filter>
+      </defs>
+      <g filter={`url(#${s})`} transform="rotate(8 60 90)">
+        {/* Body */}
+        <path d="M 20 40 Q 20 20 60 20 Q 100 20 100 40 L 100 135 Q 100 155 60 155 Q 20 155 20 135 Z" fill={`url(#${g})`}/>
+        {/* Top Flat Oval Cap with bright reflection */}
+        <ellipse cx="60" cy="40" rx="40" ry="18" fill={`url(#${topG})`}/>
+        {/* Top Rim Highlight */}
+        <ellipse cx="60" cy="38" rx="38" ry="16" fill="none" stroke="#ffffff" strokeWidth="2.5" opacity="0.8"/>
+        {/* Bottom Shaded Rim */}
+        <ellipse cx="60" cy="135" rx="40" ry="18" fill="#759c00" opacity="0.35"/>
+      </g>
+    </svg>
+  );
+};
+
+// ── 5. Middle-Right: White 3D Pyramid / Tetrahedron ───────────────────────────
+export const WhitePrism: React.FC<{ className?: string }> = ({ className = "" }) => {
+  const f1 = uid(); const f2 = uid(); const f3 = uid(); const s = uid();
+  return (
+    <svg viewBox="0 0 130 130" fill="none" xmlns="http://www.w3.org/2000/svg" className={className}>
+      <defs>
+        {/* Top / Left illuminated face */}
+        <linearGradient id={f1} x1="0%" y1="0%" x2="100%" y2="100%">
+          <stop offset="0%" stopColor="#ffffff" />
+          <stop offset="100%" stopColor="#eef4fc" />
+        </linearGradient>
+        {/* Right shaded face */}
+        <linearGradient id={f2} x1="0%" y1="0%" x2="100%" y2="100%">
+          <stop offset="0%" stopColor="#d5e3f5" />
+          <stop offset="100%" stopColor="#8faecd" />
+        </linearGradient>
+        {/* Bottom edge shadow */}
+        <linearGradient id={f3} x1="0%" y1="0%" x2="100%" y2="0%">
+          <stop offset="0%" stopColor="#b2cbe6" />
+          <stop offset="100%" stopColor="#6e8ea8" />
+        </linearGradient>
+        <filter id={s} x="-30%" y="-20%" width="170%" height="150%">
+          <feDropShadow dx="8" dy="16" stdDeviation="10" floodColor="#00186b" floodOpacity="0.38"/>
+        </filter>
+      </defs>
+      <g filter={`url(#${s})`} transform="rotate(6 65 65)">
+        {/* Left bright facet */}
+        <polygon points="65,15 15,95 65,115" fill={`url(#${f1})`} />
+        {/* Right shadowed facet */}
+        <polygon points="65,15 65,115 118,85" fill={`url(#${f2})`} />
+        {/* Bottom facet */}
+        <polygon points="15,95 65,115 118,85" fill={`url(#${f3})`} opacity="0.5" />
+        {/* Sharp center ridge highlight */}
+        <line x1="65" y1="15" x2="65" y2="115" stroke="#ffffff" strokeWidth="2.5" opacity="0.9"/>
+      </g>
+    </svg>
+  );
+};
+
+// ── 6. Bottom-Right: White 3D Spiral / Coiled Ribbon Tube ─────────────────────
+export const WhiteSpiral: React.FC<{ className?: string }> = ({ className = "" }) => {
+  const g = uid(); const s = uid();
+  return (
+    <svg viewBox="0 0 140 180" fill="none" xmlns="http://www.w3.org/2000/svg" className={className}>
+      <defs>
+        <linearGradient id={g} x1="10%" y1="0%" x2="90%" y2="100%">
+          <stop offset="0%" stopColor="#ffffff" />
+          <stop offset="45%" stopColor="#edf3fb" />
+          <stop offset="80%" stopColor="#cadcf0" />
+          <stop offset="100%" stopColor="#9fb9d6" />
+        </linearGradient>
+        <filter id={s} x="-25%" y="-20%" width="160%" height="150%">
+          <feDropShadow dx="8" dy="16" stdDeviation="12" floodColor="#00186b" floodOpacity="0.38"/>
+        </filter>
+      </defs>
+      <g filter={`url(#${s})`}>
+        {/* Volumetric coiled spring */}
+        <path
+          d="M 35 30
+             C 80 15, 120 40, 105 75
+             C 90 110, 30 100, 40 135
+             C 50 170, 105 160, 125 150"
+          stroke={`url(#${g})`}
+          strokeWidth="28"
+          strokeLinecap="round"
+          fill="none"
+        />
+        {/* Top specular highlight */}
+        <path
+          d="M 35 25
+             C 75 12, 112 34, 100 68
+             C 86 102, 34 94, 44 126
+             C 52 158, 100 152, 118 142"
+          stroke="#ffffff"
+          strokeWidth="7"
+          strokeLinecap="round"
+          fill="none"
+          opacity="0.8"
+        />
+      </g>
+    </svg>
+  );
+};
+
+// ── Lime Torus Ring (used in other sections) ──────────────────────────────────
 export const LimeTorus: React.FC<{ className?: string }> = ({ className = "" }) => {
   const rg = uid(); const s = uid(); const bg = uid();
   return (
-    <svg viewBox="0 0 120 80" fill="none" xmlns="http://www.w3.org/2000/svg" className={className}>
+    <svg viewBox="0 0 160 120" fill="none" xmlns="http://www.w3.org/2000/svg" className={className}>
       <defs>
         <radialGradient id={rg} cx="38%" cy="32%" r="68%">
           <stop offset="0%"   stopColor="#f5ff7a"/>
@@ -185,18 +282,19 @@ export const LimeTorus: React.FC<{ className?: string }> = ({ className = "" }) 
           <stop offset="0%"  stopColor="#1a50e8"/>
           <stop offset="100%" stopColor="#1234bb"/>
         </radialGradient>
-        <filter id={s}>
-          <feDropShadow dx="0" dy="6" stdDeviation="6" floodColor="#000" floodOpacity="0.22"/>
+        <filter id={s} x="-30%" y="-30%" width="170%" height="170%">
+          <feDropShadow dx="8" dy="16" stdDeviation="12" floodColor="#00186b" floodOpacity="0.35"/>
         </filter>
       </defs>
-      <g filter={`url(#${s})`} transform="rotate(-20 60 40)">
-        <ellipse cx="60" cy="40" rx="52" ry="34" fill={`url(#${rg})`}/>
-        <ellipse cx="60" cy="40" rx="22" ry="14" fill={`url(#${bg})`}/>
-        <path d="M 22 30 Q 40 14 62 20" stroke="#f0ff80" strokeWidth="5" fill="none" strokeLinecap="round" opacity="0.5"/>
+      <g filter={`url(#${s})`} transform="rotate(-20 80 60)">
+        <ellipse cx="80" cy="60" rx="68" ry="46" fill={`url(#${rg})`}/>
+        <ellipse cx="80" cy="60" rx="30" ry="20" fill={`url(#${bg})`}/>
+        <path d="M 32 44 Q 60 22 95 28" stroke="#f0ff80" strokeWidth="6" fill="none" strokeLinecap="round" opacity="0.6"/>
       </g>
     </svg>
   );
 };
 
-// Keep old WhiteCone as alias of WhitePrism for backward compat
+// Keep aliases for backward compatibility
 export const WhiteCone = WhitePrism;
+
