@@ -231,8 +231,8 @@ export const GrowthSplit: React.FC = () => {
               </div>
 
               {/* LAYER 4 (z-30): Happy Students Card — OVER the tablet/jacket in front */}
-              <div className="absolute bottom-36 right-0 sm:-right-10 z-30 rounded-2xl bg-white p-3.5 shadow-2xl border border-zinc-100/90 min-w-[215px] sm:min-w-[230px]">
-                <div className=" items-center  gap-2">
+              <div className="absolute bottom-4 sm:bottom-6 right-0 sm:-right-6 z-30 rounded-2xl bg-white p-3.5 shadow-2xl border border-zinc-100/90 min-w-[215px] sm:min-w-[230px]">
+                <div className="flex items-center justify-between gap-2">
                   <p className="text-xs font-extrabold text-zinc-900">Happy Students</p>
                   <div className="flex items-center gap-0.5 text-[10px] font-bold text-zinc-600">
                     <span>4.5</span>

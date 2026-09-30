@@ -6,7 +6,7 @@ import {
   LimeSquiggle,
   WhitePrism,
   WhiteZigzag,
-  WhiteSpiral,
+  WhiteTorus,
   LimeTorus,
 } from "@/components/ui/MemphisShapes";
 
@@ -14,19 +14,21 @@ export const CreatorCTA: React.FC = () => {
   return (
     <section id="creators" className="relative overflow-hidden bg-[#1852fe] py-24 sm:py-32 hero-grid-pattern text-white">
       {/* Decorative 3D Memphis Floating Shapes - Exact Figma match */}
-      {/* Top Left: Lime Cylinder */}
-      <LimeCylinder className="absolute top-8 left-3 sm:left-10 w-20 h-24 sm:w-28 sm:h-36 pointer-events-none drop-shadow-xl z-10" />
+      {/* Top Left: Lime Squiggle */}
+      <LimeSquiggle className="absolute top-4 -left-4 sm:left-2 lg:left-6 w-32 h-36 sm:w-44 sm:h-52 -rotate-12 pointer-events-none drop-shadow-2xl z-10" />
       {/* Mid Left: White Zigzag */}
-      <WhiteZigzag className="absolute top-1/2 -translate-y-1/2 left-3 sm:left-14 w-10 h-14 sm:w-16 sm:h-22 pointer-events-none drop-shadow-md z-10" />
-      {/* Bottom Left: Lime Torus */}
-      <LimeTorus className="absolute bottom-6 left-12 sm:left-28 w-20 h-20 sm:w-32 sm:h-32 pointer-events-none drop-shadow-xl z-10" />
+      <WhiteZigzag className="absolute top-8 left-28 sm:left-40 lg:left-48 w-14 h-18 sm:w-20 sm:h-24 -rotate-6 pointer-events-none drop-shadow-xl z-10" />
+      {/* Bottom Left: Volumetric White Torus Ring */}
+      <WhiteTorus className="absolute -bottom-8 -left-4 sm:left-2 lg:left-6 w-36 h-28 sm:w-52 sm:h-40 -rotate-12 pointer-events-none drop-shadow-2xl z-10" />
+      {/* Far Bottom Left: Lime Torus Ring */}
+      <LimeTorus className="absolute -bottom-6 left-24 sm:left-36 lg:left-48 w-32 h-24 sm:w-44 sm:h-32 rotate-12 pointer-events-none drop-shadow-2xl z-10" />
 
-      {/* Top Right: White Prism */}
-      <WhitePrism className="absolute top-10 right-4 sm:right-16 w-16 h-16 sm:w-20 sm:h-20 pointer-events-none drop-shadow-md z-10" />
-      {/* Mid Right: White Spiral Ribbon */}
-      <WhiteSpiral className="absolute top-1/2 -translate-y-1/2 right-4 sm:right-14 w-16 h-20 sm:w-22 sm:h-28 pointer-events-none drop-shadow-xl z-10" />
+      {/* Top Right: White 3D Pyramid */}
+      <WhitePrism className="absolute top-6 right-24 sm:right-36 lg:right-48 w-18 h-18 sm:w-28 sm:h-28 -rotate-12 pointer-events-none drop-shadow-xl z-10" />
+      {/* Far Top Right: Lime Cylinder */}
+      <LimeCylinder className="absolute -top-6 -right-4 sm:right-2 lg:right-6 w-28 h-36 sm:w-40 sm:h-48 rotate-12 pointer-events-none drop-shadow-2xl z-10" />
       {/* Bottom Right: Lime Squiggle */}
-      <LimeSquiggle className="absolute bottom-6 right-3 sm:right-12 w-20 h-20 sm:w-28 sm:h-28 rotate-12 pointer-events-none drop-shadow-xl z-10" />
+      <LimeSquiggle className="absolute -bottom-8 right-8 sm:right-16 lg:right-24 w-32 h-36 sm:w-44 sm:h-52 rotate-45 pointer-events-none drop-shadow-2xl z-10" />
 
       {/* Main Content */}
       <div className="relative z-10 mx-auto max-w-5xl px-4 sm:px-6 lg:px-8 text-center">

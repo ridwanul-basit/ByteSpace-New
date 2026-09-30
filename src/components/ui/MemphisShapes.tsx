@@ -6,7 +6,7 @@ function uid() {
   return `ms-${++_uid}`;
 }
 
-// ── 1. Top-Left: Large Lime 3D Zigzag / Coil Ribbon ──────────────────────────
+// ── 1. Top-Left & Accent: 4-Loop Lime 3D Zigzag / Coil Squiggle ──────────────
 export const LimeSquiggle: React.FC<{ className?: string }> = ({ className = "" }) => {
   const g1 = uid(); const s = uid(); const h = uid();
   return (
@@ -14,45 +14,47 @@ export const LimeSquiggle: React.FC<{ className?: string }> = ({ className = "" 
       <defs>
         <linearGradient id={g1} x1="0%" y1="0%" x2="100%" y2="100%">
           <stop offset="0%" stopColor="#f7ff66" />
-          <stop offset="40%" stopColor="#d2fc00" />
-          <stop offset="85%" stopColor="#92bf00" />
-          <stop offset="100%" stopColor="#6e9400" />
+          <stop offset="35%" stopColor="#d2fc00" />
+          <stop offset="80%" stopColor="#8eb800" />
+          <stop offset="100%" stopColor="#628500" />
         </linearGradient>
         <linearGradient id={h} x1="0%" y1="0%" x2="0%" y2="100%">
-          <stop offset="0%" stopColor="#ffffff" stopOpacity="0.8" />
+          <stop offset="0%" stopColor="#ffffff" stopOpacity="0.85" />
           <stop offset="100%" stopColor="#d2fc00" stopOpacity="0" />
         </linearGradient>
-        <filter id={s} x="-20%" y="-20%" width="150%" height="150%">
+        <filter id={s} x="-25%" y="-20%" width="160%" height="150%">
           <feDropShadow dx="8" dy="16" stdDeviation="12" floodColor="#00186b" floodOpacity="0.38"/>
         </filter>
       </defs>
       <g filter={`url(#${s})`}>
-        {/* Main 3D volumetric coil path */}
+        {/* Main 4-loop volumetric coil path matching reference */}
         <path
-          d="M 125 35
-             C 145 45, 140 75, 110 90
-             L 45 125
-             C 20 138, 20 165, 45 178
-             L 105 205"
+          d="M 50 45
+             C 75 35, 112 34, 120 52
+             C 128 72, 85 82, 60 92
+             C 38 102, 50 124, 82 128
+             C 114 132, 134 146, 122 165
+             C 110 184, 72 188, 92 205"
           stroke={`url(#${g1})`}
-          strokeWidth="38"
+          strokeWidth="36"
           strokeLinecap="round"
           strokeLinejoin="round"
           fill="none"
         />
-        {/* Specular highlight ridge on top */}
+        {/* Specular highlight ridge along the top edge */}
         <path
-          d="M 120 30
-             C 138 38, 134 65, 108 78
-             L 48 112
-             C 28 122, 28 145, 48 156
-             L 100 180"
+          d="M 50 40
+             C 72 30, 108 28, 116 46
+             C 124 64, 82 75, 58 84
+             C 38 94, 50 116, 80 120
+             C 110 124, 128 138, 118 155
+             C 106 172, 72 178, 88 194"
           stroke="white"
-          strokeWidth="10"
+          strokeWidth="8"
           strokeLinecap="round"
           strokeLinejoin="round"
           fill="none"
-          opacity="0.55"
+          opacity="0.6"
         />
       </g>
     </svg>
@@ -226,12 +228,12 @@ export const WhitePrism: React.FC<{ className?: string }> = ({ className = "" })
 export const WhiteSpiral: React.FC<{ className?: string }> = ({ className = "" }) => {
   const g = uid(); const s = uid();
   return (
-    <svg viewBox="0 0 140 180" fill="none" xmlns="http://www.w3.org/2000/svg" className={className}>
+    <svg viewBox="0 0 160 220" fill="none" xmlns="http://www.w3.org/2000/svg" className={className}>
       <defs>
         <linearGradient id={g} x1="10%" y1="0%" x2="90%" y2="100%">
           <stop offset="0%" stopColor="#ffffff" />
-          <stop offset="45%" stopColor="#edf3fb" />
-          <stop offset="80%" stopColor="#cadcf0" />
+          <stop offset="40%" stopColor="#edf3fb" />
+          <stop offset="75%" stopColor="#cadcf0" />
           <stop offset="100%" stopColor="#9fb9d6" />
         </linearGradient>
         <filter id={s} x="-25%" y="-20%" width="160%" height="150%">
@@ -239,26 +241,32 @@ export const WhiteSpiral: React.FC<{ className?: string }> = ({ className = "" }
         </filter>
       </defs>
       <g filter={`url(#${s})`}>
-        {/* Volumetric coiled spring */}
+        {/* 4-loop volumetric coiled spring */}
         <path
-          d="M 35 30
-             C 80 15, 120 40, 105 75
-             C 90 110, 30 100, 40 135
-             C 50 170, 105 160, 125 150"
+          d="M 50 45
+             C 75 35, 112 34, 120 52
+             C 128 72, 85 82, 60 92
+             C 38 102, 50 124, 82 128
+             C 114 132, 134 146, 122 165
+             C 110 184, 72 188, 92 205"
           stroke={`url(#${g})`}
-          strokeWidth="28"
+          strokeWidth="34"
           strokeLinecap="round"
+          strokeLinejoin="round"
           fill="none"
         />
         {/* Top specular highlight */}
         <path
-          d="M 35 25
-             C 75 12, 112 34, 100 68
-             C 86 102, 34 94, 44 126
-             C 52 158, 100 152, 118 142"
+          d="M 50 40
+             C 72 30, 108 28, 116 46
+             C 124 64, 82 75, 58 84
+             C 38 94, 50 116, 80 120
+             C 110 124, 128 138, 118 155
+             C 106 172, 72 178, 88 194"
           stroke="#ffffff"
-          strokeWidth="7"
+          strokeWidth="8"
           strokeLinecap="round"
+          strokeLinejoin="round"
           fill="none"
           opacity="0.8"
         />
