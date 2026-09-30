@@ -3,7 +3,7 @@
 import React, { useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
-import { Star, Clock, BookOpen, ArrowUpRight } from "lucide-react";
+import { Star, BarChart2 } from "lucide-react";
 import { CATEGORY_TABS, COURSES_DATA, Course } from "@/data/landingData";
 
 interface CourseCatalogProps {
@@ -32,7 +32,7 @@ export const CourseCatalog: React.FC<CourseCatalogProps> = ({ searchQuery = "" }
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto">
-          <h2 className="text-3xl sm:text-5xl font-extrabold tracking-tight text-zinc-900 leading-tight">
+          <h2 className="text-3xl sm:text-5xl font-extrabold tracking-tight text-zinc-900 leading-tight font-heading">
             Discover Your Passion, <br className="hidden sm:inline" />
             Build Your Skills
           </h2>
@@ -67,86 +67,102 @@ export const CourseCatalog: React.FC<CourseCatalogProps> = ({ searchQuery = "" }
           </button>
         </div>
 
-        {/* Courses Grid */}
-        <div className="mt-14 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-7 sm:gap-8">
+        {/* Courses Grid — Exact Figma Design */}
+        <div className="mt-14 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
           {filteredCourses.map((course: Course) => (
-            <Link
-              href={`/courses/${course.id === "course-1" ? "learn-figma-from-basic" : course.id === "course-2" ? "build-digital-asset" : course.id === "course-3" ? "the-power-of-big-data" : "build-digital-asset"}`}
+            <div
               key={course.id}
-              className="group flex flex-col overflow-hidden rounded-2xl border border-zinc-200/90 bg-white p-4 shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-300"
+              className="group flex flex-col overflow-hidden rounded-3xl border border-zinc-200 bg-white shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-xl"
             >
-              {/* Thumbnail Container */}
-              <div className="relative aspect-[16/10] w-full overflow-hidden rounded-xl bg-zinc-100">
-                <Image
-                  src={course.image}
-                  alt={course.title}
-                  fill
-                  className="object-cover transition-transform duration-500 group-hover:scale-105"
-                />
-                <div className="absolute top-3 left-3 rounded-full bg-white/95 backdrop-blur-md px-3 py-1 text-[11px] font-bold text-zinc-800 shadow-sm">
-                  {course.category}
-                </div>
-                <div className="absolute top-3 right-3 rounded-full bg-black/60 backdrop-blur-md px-2.5 py-1 text-[11px] font-semibold text-white flex items-center gap-1">
-                  <Star className="w-3 h-3 fill-amber-400 text-amber-400" />
-                  <span>{course.rating}</span>
-                </div>
-              </div>
+              {/* Card Thumbnail */}
+              <div className="relative h-52 w-full overflow-hidden bg-zinc-100 p-3">
+                <div className="relative h-full w-full overflow-hidden rounded-2xl">
+                  <Image
+                    src={course.image}
+                    alt={course.title}
+                    fill
+                    className="object-cover transition-transform duration-500 group-hover:scale-105"
+                  />
 
-              {/* Course Meta Info */}
-              <div className="mt-4 flex flex-col flex-1">
-                {/* Meta details row */}
-                <div className="flex items-center gap-4 text-xs text-zinc-500 font-medium">
-                  <span className="flex items-center gap-1">
-                    <Clock className="w-3.5 h-3.5 text-zinc-400" />
-                    {course.duration}
-                  </span>
-                  <span className="flex items-center gap-1">
-                    <BookOpen className="w-3.5 h-3.5 text-zinc-400" />
-                    {course.lessons} Lessons
-                  </span>
-                  <span className="rounded bg-zinc-100 px-1.5 py-0.5 text-[10px] font-semibold text-zinc-600">
-                    {course.level}
-                  </span>
-                </div>
-
-                {/* Course Title */}
-                <h3 className="mt-2.5 text-base sm:text-lg font-bold text-zinc-900 group-hover:text-[#1852fe] transition-colors line-clamp-2">
-                  {course.title}
-                </h3>
-
-                {/* Bottom Row: Students & Price matching Figma ($45/course) */}
-                <div className="mt-auto pt-5 flex items-center justify-between border-t border-zinc-100">
-                  <div className="flex items-center gap-2">
-                    <div className="flex -space-x-1.5">
-                      <div className="h-6 w-6 rounded-full border-2 border-white bg-blue-500 text-[10px] text-white flex items-center justify-center font-bold">
-                        A
-                      </div>
-                      <div className="h-6 w-6 rounded-full border-2 border-white bg-emerald-500 text-[10px] text-white flex items-center justify-center font-bold">
-                        B
-                      </div>
-                      <div className="h-6 w-6 rounded-full border-2 border-white bg-amber-500 text-[10px] text-white flex items-center justify-center font-bold">
-                        C
-                      </div>
-                    </div>
-                    <span className="text-xs font-semibold text-zinc-500">
-                      {course.studentsCount}
+                  {/* Tags Pills on bottom of image */}
+                  <div className="absolute bottom-2.5 left-2.5 right-2.5 flex items-center justify-between gap-1">
+                    <span className="rounded-full bg-black/40 backdrop-blur-md px-2.5 py-1 text-[10px] font-medium text-white border border-white/10">
+                      {course.lessons} Lessons
+                    </span>
+                    <span className="rounded-full bg-black/40 backdrop-blur-md px-2.5 py-1 text-[10px] font-medium text-white border border-white/10">
+                      {course.duration}
+                    </span>
+                    <span className="rounded-full bg-black/40 backdrop-blur-md px-2.5 py-1 text-[10px] font-medium text-white border border-white/10">
+                      {course.reviewsCount} Comments
                     </span>
                   </div>
+                </div>
+              </div>
 
-                  <div className="flex items-center gap-2">
-                    <div className="text-right">
-                      <span className="text-lg font-extrabold text-[#1852fe]">
-                        {course.price.replace(".00", "")}
-                      </span>
-                      <span className="text-xs font-medium text-zinc-400">/course</span>
+              {/* Card Body */}
+              <div className="flex flex-1 flex-col justify-between p-5 pt-3">
+                <div>
+                  {/* Title + Rating */}
+                  <div className="flex items-start justify-between gap-2">
+                    <Link
+                      href={`/courses/${course.id === "course-1" ? "learn-figma-from-basic" : course.id === "course-2" ? "build-digital-asset" : course.id === "course-3" ? "the-power-of-big-data" : course.id === "course-4" ? "balancing-productivity" : course.id === "course-5" ? "mastering-money-management" : "from-idea-to-startup"}`}
+                      className="font-bold text-base text-zinc-900 line-clamp-1 hover:text-[#1852fe] transition-colors"
+                    >
+                      {course.title}
+                    </Link>
+                    <div className="flex items-center gap-1 shrink-0 text-xs font-bold text-zinc-600">
+                      <span>{course.rating}</span>
+                      <Star className="w-3.5 h-3.5 fill-amber-400 text-amber-400" />
                     </div>
-                    <div className="h-8 w-8 rounded-full bg-zinc-100 group-hover:bg-[#1852fe] group-hover:text-white text-zinc-600 flex items-center justify-center transition-colors">
-                      <ArrowUpRight className="w-4 h-4" />
+                  </div>
+
+                  <p className="mt-1 text-xs text-zinc-400 font-medium">
+                    by <span className="text-zinc-600">{course.author.name}</span>
+                  </p>
+
+                  {/* Level Badge + Enrolled Avatars */}
+                  <div className="mt-4 flex items-center justify-between">
+                    <span className="inline-flex items-center gap-1.5 rounded-full bg-zinc-100 px-3 py-1 text-xs font-semibold text-zinc-600">
+                      <BarChart2 className="w-3 h-3 text-zinc-400" />
+                      {course.level}
+                    </span>
+
+                    {/* Avatars Stack */}
+                    <div className="flex items-center -space-x-2">
+                      <div className="relative h-6 w-6 rounded-full border-2 border-white overflow-hidden">
+                        <Image src="/avatars/avatar-1.jpg" alt="Student" fill className="object-cover" />
+                      </div>
+                      <div className="relative h-6 w-6 rounded-full border-2 border-white overflow-hidden">
+                        <Image src="/avatars/avatar-2.jpg" alt="Student" fill className="object-cover" />
+                      </div>
+                      <div className="relative h-6 w-6 rounded-full border-2 border-white overflow-hidden">
+                        <Image src="/avatars/avatar-3.jpg" alt="Student" fill className="object-cover" />
+                      </div>
+                      <div className="flex h-6 w-6 items-center justify-center rounded-full border-2 border-white bg-[#d2fc00] text-[9px] font-bold text-zinc-900">
+                        26+
+                      </div>
                     </div>
                   </div>
                 </div>
+
+                {/* Price & Link */}
+                <div className="mt-5 pt-3 border-t border-zinc-100 flex items-center justify-between">
+                  <div>
+                    <span className="text-lg font-extrabold text-[#1852fe]">
+                      ${course.price.replace("$", "")}
+                    </span>
+                    <span className="text-xs text-zinc-400">/lifetime</span>
+                  </div>
+
+                  <Link
+                    href={`/courses/${course.id === "course-1" ? "learn-figma-from-basic" : course.id === "course-2" ? "build-digital-asset" : course.id === "course-3" ? "the-power-of-big-data" : course.id === "course-4" ? "balancing-productivity" : course.id === "course-5" ? "mastering-money-management" : "from-idea-to-startup"}`}
+                    className="rounded-full bg-[#1852fe] hover:bg-[#1242d4] px-4 py-1.5 text-xs font-bold text-white transition-colors"
+                  >
+                    Enroll
+                  </Link>
+                </div>
               </div>
-            </Link>
+            </div>
           ))}
         </div>
       </div>
