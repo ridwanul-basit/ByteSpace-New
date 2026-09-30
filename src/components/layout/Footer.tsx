@@ -1,9 +1,6 @@
-"use client";
-
 import React, { useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
-import { ArrowRight, Check } from "lucide-react";
 
 export const Footer: React.FC = () => {
   const [email, setEmail] = useState("");
