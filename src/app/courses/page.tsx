@@ -111,11 +111,10 @@ export default function CoursesPage() {
               <button
                 key={cat}
                 onClick={() => setSelectedCategory(cat)}
-                className={`shrink-0 rounded-full px-4 py-2 text-xs font-bold border transition cursor-pointer ${
-                  selectedCategory === cat
-                    ? "bg-[#1852fe] text-white border-[#1852fe]"
-                    : "bg-white text-zinc-700 border-zinc-200 hover:border-[#1852fe] hover:text-[#1852fe]"
-                }`}
+                className={`shrink-0 rounded-full px-4 py-2 text-xs font-bold border transition cursor-pointer ${selectedCategory === cat
+                  ? "bg-[#1852fe] text-white border-[#1852fe]"
+                  : "bg-white text-zinc-700 border-zinc-200 hover:border-[#1852fe] hover:text-[#1852fe]"
+                  }`}
               >
                 {cat}
               </button>
@@ -161,7 +160,7 @@ export default function CoursesPage() {
                     </p>
 
                     {/* Level Badge + Enrolled Avatars */}
-                    <div className="mt-4 flex items-center justify-between">
+                    <div className="mt-4 flex items-center gap-3 ">
                       <span className="inline-flex items-center gap-1.5 rounded-full bg-zinc-100 px-3 py-1 text-xs font-semibold text-zinc-600">
                         <BarChart2 className="w-3 h-3 text-zinc-400" />
                         {course.level}
@@ -194,9 +193,9 @@ export default function CoursesPage() {
                       <span className="text-xs text-zinc-400">/lifetime</span>
                     </div>
 
-                    <span className="rounded-full bg-[#1852fe] group-hover:bg-[#1242d4] px-4 py-1.5 text-xs font-bold text-white transition-colors">
+                    {/* <span className="rounded-full bg-[#1852fe] group-hover:bg-[#1242d4] px-4 py-1.5 text-xs font-bold text-white transition-colors">
                       Enroll
-                    </span>
+                    </span> */}
                   </div>
                 </div>
               </Link>
@@ -216,11 +215,10 @@ export default function CoursesPage() {
               <button
                 key={p}
                 onClick={() => setCurrentPage(p)}
-                className={`h-9 w-9 rounded-full text-sm font-bold transition cursor-pointer ${
-                  currentPage === p
-                    ? "bg-[#1852fe] text-white"
-                    : "text-zinc-600 hover:bg-zinc-100"
-                }`}
+                className={`h-9 w-9 rounded-full text-sm font-bold transition cursor-pointer ${currentPage === p
+                  ? "bg-[#1852fe] text-white"
+                  : "text-zinc-600 hover:bg-zinc-100"
+                  }`}
               >
                 {p}
               </button>

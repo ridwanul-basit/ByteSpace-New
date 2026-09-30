@@ -110,7 +110,7 @@ export const CourseCatalog: React.FC<CourseCatalogProps> = ({ searchQuery = "" }
                   </p>
 
                   {/* Level Badge + Enrolled Avatars */}
-                  <div className="mt-4 flex items-center justify-between">
+                  <div className="mt-4 flex items-center gap-3 ">
                     <span className="inline-flex items-center gap-1.5 rounded-full bg-zinc-100 px-3 py-1 text-xs font-semibold text-zinc-600">
                       <BarChart2 className="w-3 h-3 text-zinc-400" />
                       {course.level}
@@ -143,12 +143,12 @@ export const CourseCatalog: React.FC<CourseCatalogProps> = ({ searchQuery = "" }
                     <span className="text-xs text-zinc-400">/lifetime</span>
                   </div>
 
-                  <Link
+                  {/* <Link
                     href={`/courses/${course.id === "course-1" ? "learn-figma-from-basic" : course.id === "course-2" ? "build-digital-asset" : course.id === "course-3" ? "the-power-of-big-data" : course.id === "course-4" ? "balancing-productivity" : course.id === "course-5" ? "mastering-money-management" : "from-idea-to-startup"}`}
                     className="rounded-full bg-[#1852fe] hover:bg-[#1242d4] px-4 py-1.5 text-xs font-bold text-white transition-colors"
                   >
                     Enroll
-                  </Link>
+                  </Link> */}
                 </div>
               </div>
             </div>
