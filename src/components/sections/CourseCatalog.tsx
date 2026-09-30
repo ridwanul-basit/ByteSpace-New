@@ -50,8 +50,8 @@ export const CourseCatalog: React.FC<CourseCatalogProps> = ({ searchQuery = "" }
                 key={tab}
                 onClick={() => setActiveTab(tab)}
                 className={`rounded-full px-4 sm:px-5 py-2 text-xs sm:text-sm font-semibold transition-all duration-200 cursor-pointer ${isActive
-                    ? "bg-[#d2fc00] text-black shadow-sm scale-105"
-                    : "border border-zinc-200/90 bg-zinc-50/80 text-zinc-600 hover:bg-zinc-100 hover:text-zinc-900"
+                  ? "bg-[#d2fc00] text-black shadow-sm scale-105"
+                  : "border border-zinc-200/90 bg-zinc-50/80 text-zinc-600 hover:bg-zinc-100 hover:text-zinc-900"
                   }`}
               >
                 {tab}
@@ -84,17 +84,7 @@ export const CourseCatalog: React.FC<CourseCatalogProps> = ({ searchQuery = "" }
                   />
 
                   {/* Tags Pills on bottom of image */}
-                  <div className="absolute bottom-2.5 left-2.5 right-2.5 flex items-center justify-between gap-1">
-                    <span className="rounded-full bg-black/40 backdrop-blur-md px-2.5 py-1 text-[10px] font-medium text-white border border-white/10">
-                      {course.lessons} Lessons
-                    </span>
-                    <span className="rounded-full bg-black/40 backdrop-blur-md px-2.5 py-1 text-[10px] font-medium text-white border border-white/10">
-                      {course.duration}
-                    </span>
-                    <span className="rounded-full bg-black/40 backdrop-blur-md px-2.5 py-1 text-[10px] font-medium text-white border border-white/10">
-                      {course.reviewsCount} Comments
-                    </span>
-                  </div>
+
                 </div>
               </div>
 
