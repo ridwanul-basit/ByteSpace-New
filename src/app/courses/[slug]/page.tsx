@@ -400,27 +400,27 @@ function ReviewsTab() {
 
       {/* Rating overview */}
       <div className="flex flex-col sm:flex-row gap-8 items-start">
-        <div className="text-center">
-          <div className="inline-flex flex-col items-center rounded-2xl bg-zinc-50 px-6 py-4">
+        <div className="text-center bg-[#d2fc00] rounded-2xl">
+          <div className="inline-flex flex-col items-center rounded-2xl px-6 py-8">
             <p className="text-[10px] font-semibold text-zinc-500 uppercase">Rating</p>
-            <p className="text-4xl font-black text-zinc-900">4.7</p>
-            <div className="mt-1 flex gap-0.5">
-              {[1, 2, 3, 4, 5].map(i => <Star key={i} className={`w-3 h-3 ${i <= 4 ? "fill-amber-400 text-amber-400" : "text-zinc-300"}`} />)}
-            </div>
+            <p className="text-3xl font-black text-zinc-900">4.7</p>
           </div>
         </div>
 
         <div className="flex-1 space-y-1.5">
           {ratingBreakdown.map((r) => (
             <div key={r.stars} className="flex items-center gap-2">
-              <div className="flex gap-0.5 w-20 justify-end">
-                {[1, 2, 3, 4, 5].map(i => <Star key={i} className={`w-3 h-3 ${i <= r.stars ? "fill-amber-400 text-amber-400" : "text-zinc-200"}`} />)}
-              </div>
+
               <div className="flex-1 h-1.5 bg-zinc-100 rounded-full overflow-hidden">
-                <div className="h-full bg-amber-400 rounded-full" style={{ width: `${(r.count / total) * 100}%` }} />
+                <div className="h-full bg-[#d2fc00] rounded-full" style={{ width: `${(r.count / total) * 100}%` }} />
+              </div>
+
+              <div className="flex gap-0.5 w-20 justify-end">
+                {[1, 2, 3, 4, 5].map(i => <Star key={i} className={`w-3 h-3 ${i <= r.stars ? "fill-black text-black" : "text-black"}`} />)}
               </div>
               <span className="text-xs text-zinc-500 font-medium w-8 text-right">{r.count}</span>
             </div>
+
           ))}
         </div>
       </div>
@@ -461,7 +461,7 @@ function ReviewsTab() {
               <span className="text-[10px] text-zinc-400">{review.time}</span>
             </div>
             <div className="mt-2 flex gap-0.5">
-              {[1, 2, 3, 4, 5].map(i => <Star key={i} className={`w-3 h-3 ${i <= review.rating ? "fill-amber-400 text-amber-400" : "text-zinc-200"}`} />)}
+              {[1, 2, 3, 4, 5].map(i => <Star key={i} className={`w-3 h-3 ${i <= review.rating ? "fill-black text-black" : "text-black"}`} />)}
             </div>
             <p className="mt-3 text-sm text-zinc-600 leading-relaxed">{review.text}</p>
           </div>
