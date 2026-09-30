@@ -8,21 +8,25 @@ import { BookOpen, MessageSquare, Clock, Star, BarChart2 } from "lucide-react";
 // ── Shared left-panel visual (same on both pages) ─────────────────────────────
 function AuthLeftPanel({ tagline, description }: { tagline: string; description: string }) {
   return (
-    <div className="relative flex flex-col flex-1 min-h-0 overflow-hidden px-8 sm:px-12 lg:px-16 py-10 lg:py-0 lg:justify-center">
+    <div className="relative flex flex-col flex-1 w-full min-h-0 items-center lg:items-start justify-center">
 
       {/* ── Logo ── */}
-      <Link href="/" className="absolute top-8 left-8 sm:left-12 lg:left-16 z-20">
-        <span className="text-[#d2fc00] font-black text-3xl leading-none select-none">b</span>
+      <Link href="/" className="mb-6 lg:mb-8 self-start group">
+        <span className="text-[#d2fc00] font-black text-3xl sm:text-4xl leading-none select-none transition-transform duration-200 group-hover:scale-105 inline-block">
+          b
+        </span>
       </Link>
 
       {/* ── Text ── */}
-      <div className="relative z-20 mt-20 lg:mt-0 max-w-xs">
-        <h2 className="text-white font-extrabold text-lg sm:text-xl leading-snug mb-2">{tagline}</h2>
+      <div className="relative z-20 max-w-sm text-center lg:text-left">
+        <h2 className="text-white font-extrabold text-xl sm:text-2xl leading-snug mb-2 font-heading">
+          {tagline}
+        </h2>
         <p className="text-blue-200 text-xs sm:text-sm leading-relaxed">{description}</p>
       </div>
 
       {/* ── Card collage ── */}
-      <div className="relative z-20 mt-8 lg:mt-10 flex justify-center lg:justify-start">
+      <div className="relative z-20 mt-8 lg:mt-10 flex justify-center self-center lg:self-start">
         <div className="relative" style={{ width: 340, height: 360 }}>
 
           {/* ── Lime Torus Ring — top-left ── */}
@@ -174,7 +178,7 @@ export default function AuthLayout({ children, tagline, description }: {
   description: string;
 }) {
   return (
-    <div className="min-h-screen flex flex-col lg:flex-row bg-[#1852fe] relative overflow-hidden">
+    <div className="min-h-screen bg-[#1852fe] relative overflow-hidden flex items-center justify-center py-10 lg:py-16">
 
       {/* Blue grid background pattern */}
       <div
@@ -186,16 +190,23 @@ export default function AuthLayout({ children, tagline, description }: {
         }}
       />
 
-      {/* LEFT PANEL */}
-      <div className="relative z-10 lg:w-[45%] xl:w-[42%] flex flex-col">
-        <AuthLeftPanel tagline={tagline} description={description} />
-      </div>
+      {/* Symmetric Container with Equal Width Columns & Equal Spacing */}
+      <div className="relative z-10 w-full max-w-7xl mx-auto px-6 sm:px-10 lg:px-12 flex flex-col lg:flex-row items-center justify-between gap-10 lg:gap-12">
 
-      {/* RIGHT PANEL — white floating card */}
-      <div className="relative z-10 flex-1 flex items-center justify-center px-6 py-12 lg:py-0 lg:pr-16 xl:pr-24">
-        <div className="w-full max-w-[420px] bg-white rounded-[2rem] shadow-2xl px-10 py-10 sm:py-12">
-          {children}
+        {/* LEFT PANEL — Exactly 50% width on desktop */}
+        <div className="w-full lg:w-1/2 flex items-center justify-center lg:justify-start">
+          <div className="w-full max-w-[460px]">
+            <AuthLeftPanel tagline={tagline} description={description} />
+          </div>
         </div>
+
+        {/* RIGHT PANEL — Exactly 50% width on desktop */}
+        <div className="w-full lg:w-1/2 flex items-center justify-center lg:justify-end">
+          <div className="w-full max-w-[460px] bg-white rounded-[2rem] shadow-2xl px-8 sm:px-10 py-10 sm:py-12">
+            {children}
+          </div>
+        </div>
+
       </div>
     </div>
   );
