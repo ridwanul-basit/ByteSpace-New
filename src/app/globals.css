@@ -1,5 +1,10 @@
 @import "tailwindcss";
 
+@theme {
+  --font-poppins: var(--font-poppins), 'Poppins', sans-serif;
+  --font-satoshi: 'Satoshi', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+}
+
 @layer base {
   :root {
     --brand-blue: #1852fe;
@@ -12,12 +17,22 @@
 
   html {
     scroll-behavior: smooth;
+    font-family: 'Satoshi', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
   }
 
   body {
     color: #171717;
     background: #ffffff;
+    font-family: 'Satoshi', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
     font-feature-settings: "cv02", "cv03", "cv04", "cv11";
+  }
+
+  h1, h2, h3, h4, h5, h6, [role="heading"], .font-heading {
+    font-family: var(--font-poppins), 'Poppins', sans-serif;
+  }
+
+  p, span, a, button, input, label, textarea, select, li {
+    font-family: 'Satoshi', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
   }
 }
 
