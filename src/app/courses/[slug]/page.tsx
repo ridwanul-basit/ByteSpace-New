@@ -154,8 +154,8 @@ export default function CourseDetailPage() {
                     key={tab}
                     onClick={() => setActiveTab(tab)}
                     className={`px-5 py-2.5 text-sm font-semibold capitalize transition border-b-2 cursor-pointer ${activeTab === tab
-                        ? "border-[#1852fe] text-[#1852fe]"
-                        : "border-transparent text-zinc-500 hover:text-zinc-800"
+                      ? "border-[#1852fe] text-[#1852fe]"
+                      : "border-transparent text-zinc-500 hover:text-zinc-800"
                       }`}
                   >
                     {tab === "reviews" ? "Reviews" : tab.charAt(0).toUpperCase() + tab.slice(1)}
@@ -361,11 +361,11 @@ function LessonsTab() {
           Witness your growth as you complete lessons, with an intuitive progress tracking feature guiding you
           through your learning journey.
         </p>
-        <div className="mt-4 rounded-2xl border border-zinc-100 bg-white p-5 shadow-sm max-w-xs">
+        <div className="mt-4 rounded-2xl border border-zinc-100 bg-white p-5 shadow-sm max-w-54px">
           <p className="text-[10px] font-semibold text-zinc-500">Learning Progress</p>
           <p className="mt-1 text-3xl font-black text-zinc-900">55%</p>
           <div className="mt-3 h-2 w-full bg-zinc-100 rounded-full overflow-hidden">
-            <div className="h-full bg-[#1852fe] rounded-full w-[55%]" />
+            <div className="h-full bg-[#d2fc00] rounded-full w-[58%]" />
           </div>
         </div>
       </div>
@@ -434,8 +434,8 @@ function ReviewsTab() {
               key={f}
               onClick={() => setFilterRating(f)}
               className={`rounded-full px-4 py-1.5 text-xs font-bold border transition cursor-pointer ${filterRating === f
-                  ? "bg-[#1852fe] text-white border-[#1852fe]"
-                  : "bg-white text-zinc-600 border-zinc-200 hover:border-[#1852fe]"
+                ? "bg-[#1852fe] text-white border-[#1852fe]"
+                : "bg-white text-zinc-600 border-zinc-200 hover:border-[#1852fe]"
                 }`}
             >
               {f}
