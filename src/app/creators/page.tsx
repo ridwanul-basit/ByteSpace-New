@@ -19,7 +19,7 @@ const CREATOR_COURSES = [
   {
     slug: "learn-figma-from-basic",
     title: "Learn Figma from Basic",
-    image: "/courses/course-1.jpg",
+    image: "/courses/Frame (1).png",
     author: "purepearl studio",
     rating: 4.5,
     level: "Beginner",
@@ -31,7 +31,7 @@ const CREATOR_COURSES = [
   {
     slug: "build-digital-asset",
     title: "Build Digital Asset",
-    image: "/courses/course-2.jpg",
+    image: "/courses/Frame (2).png",
     author: "purepearl studio",
     rating: 4.5,
     level: "Beginner",
@@ -43,7 +43,7 @@ const CREATOR_COURSES = [
   {
     slug: "the-power-of-big-data",
     title: "the Power of Big Data",
-    image: "/courses/course-3.jpg",
+    image: "/courses/Frame (3).png",
     author: "purepearl studio",
     rating: 4.5,
     level: "Beginner",
@@ -55,7 +55,7 @@ const CREATOR_COURSES = [
   {
     slug: "balancing-productivity",
     title: "Balancing Productivity an...",
-    image: "/courses/course-4.jpg",
+    image: "/courses/Frame (4).png",
     author: "purepearl studio",
     rating: 4.5,
     level: "Beginner",
@@ -67,7 +67,7 @@ const CREATOR_COURSES = [
   {
     slug: "mastering-money-management",
     title: "Mastering Money Manage...",
-    image: "/courses/course-5.jpg",
+    image: "/courses/Frame (5).png",
     author: "purepearl studio",
     rating: 4.5,
     level: "Beginner",
@@ -79,7 +79,7 @@ const CREATOR_COURSES = [
   {
     slug: "from-idea-to-startup",
     title: "From Idea to Startup Succ...",
-    image: "/courses/course-6.jpg",
+    image: "/courses/Frame (6).png",
     author: "purepearl studio",
     rating: 4.5,
     level: "Beginner",

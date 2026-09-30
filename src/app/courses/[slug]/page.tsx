@@ -31,7 +31,7 @@ const COURSE = {
   price: 25,
   lessons: 112,
   duration: "24 hours",
-  image: "/courses/course-2.jpg",
+  image: "/courses/Frame (2).png",
 };
 
 const LESSON_PREVIEW = [
@@ -68,11 +68,12 @@ const REVIEWS = [
 ];
 
 const SNEAK_PEEK_IMAGES = [
-  "/courses/course-1.jpg",
-  "/courses/course-2.jpg",
-  "/courses/course-3.jpg",
-  "/courses/course-4.jpg",
-  "/courses/course-5.jpg",
+  "/courses/Frame (1).png",
+  "/courses/Frame (2).png",
+  "/courses/Frame (3).png",
+  "/courses/Frame (4).png",
+  "/courses/Frame (5).png",
+  "/courses/Frame (6).png",
 ];
 
 type TabType = "about" | "lessons" | "reviews";

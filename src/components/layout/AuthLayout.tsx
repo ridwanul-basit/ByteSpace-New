@@ -90,7 +90,7 @@ function AuthLeftPanel({ tagline, description }: { tagline: string; description:
           {/* ── Back course card (offset, wider) ── */}
           <div className="absolute top-20 left-0 z-10 w-[260px] rounded-2xl bg-white shadow-xl overflow-hidden border border-zinc-100 opacity-80 transition-transform duration-300 hover:opacity-100">
             <div className="relative h-24 bg-zinc-200 overflow-hidden">
-              <Image src="/courses/course-1.jpg" alt="Build Digital Assets" fill className="object-cover opacity-70" />
+              <Image src="/courses/Frame (1).png" alt="Build Digital Assets" fill className="object-cover opacity-70" />
             </div>
             <div className="p-3">
               <p className="text-xs font-extrabold text-zinc-800 truncate">Build Digital Asset</p>
@@ -107,7 +107,7 @@ function AuthLeftPanel({ tagline, description }: { tagline: string; description:
           <div className="absolute top-4 left-16 sm:left-20 z-20 w-[290px] sm:w-[310px] rounded-2xl bg-white shadow-2xl overflow-hidden border border-zinc-100">
             {/* Course image */}
             <div className="relative h-[135px] bg-zinc-900 overflow-hidden">
-              <Image src="/courses/course-2.jpg" alt="The Power of Big Data" fill className="object-cover opacity-90" />
+              <Image src="/courses/Frame (2).png" alt="The Power of Big Data" fill className="object-cover opacity-90" />
               {/* Badges */}
               <div className="absolute bottom-2.5 left-2.5 right-2.5 flex items-center justify-between gap-1">
                 <span className="rounded-full bg-black/60 backdrop-blur-md px-2 py-0.5 text-[9px] text-white font-semibold flex items-center gap-0.5">

@@ -20,12 +20,12 @@ import {
 
 /* ── Static course data ────────────────────────────────────────────────────── */
 const COURSES = [
-  { slug: "learn-figma-from-basic", title: "Learn Figma from Basic", image: "/courses/course-1.jpg", author: "purepearl studio", rating: 4.5, level: "Beginner", price: 25, lessons: 17, duration: "2h 16min", comments: 59, category: "UX/UI Design" },
-  { slug: "build-digital-asset", title: "Build Digital Asset", image: "/courses/course-2.jpg", author: "purepearl studio", rating: 4.5, level: "Intermediate", price: 25, lessons: 112, duration: "24h", comments: 45, category: "Design" },
-  { slug: "the-power-of-big-data", title: "the Power of Big Data", image: "/courses/course-3.jpg", author: "purepearl studio", rating: 4.5, level: "Beginner", price: 25, lessons: 17, duration: "2h 16min", comments: 59, category: "Development" },
-  { slug: "balancing-productivity", title: "Balancing Productivity an...", image: "/courses/course-4.jpg", author: "purepearl studio", rating: 4.5, level: "Beginner", price: 25, lessons: 17, duration: "2h 16min", comments: 59, category: "Marketing" },
-  { slug: "mastering-money-management", title: "Mastering Money Manag...", image: "/courses/course-5.jpg", author: "purepearl studio", rating: 4.2, level: "Beginner", price: 25, lessons: 17, duration: "2h 16min", comments: 59, category: "Finance" },
-  { slug: "from-idea-to-startup", title: "From Idea to Startup Succ...", image: "/courses/course-6.jpg", author: "purepearl studio", rating: 4.5, level: "Beginner", price: 25, lessons: 17, duration: "2h 16min", comments: 59, category: "Music" },
+  { slug: "learn-figma-from-basic", title: "Learn Figma from Basic", image: "/courses/Frame (1).png", author: "purepearl studio", rating: 4.5, level: "Beginner", price: 25, lessons: 17, duration: "2h 16min", comments: 59, category: "UX/UI Design" },
+  { slug: "build-digital-asset", title: "Build Digital Asset", image: "/courses/Frame (2).png", author: "purepearl studio", rating: 4.5, level: "Intermediate", price: 25, lessons: 112, duration: "24h", comments: 45, category: "Design" },
+  { slug: "the-power-of-big-data", title: "the Power of Big Data", image: "/courses/Frame (3).png", author: "purepearl studio", rating: 4.5, level: "Beginner", price: 25, lessons: 17, duration: "2h 16min", comments: 59, category: "Development" },
+  { slug: "balancing-productivity", title: "Balancing Productivity an...", image: "/courses/Frame (4).png", author: "purepearl studio", rating: 4.5, level: "Beginner", price: 25, lessons: 17, duration: "2h 16min", comments: 59, category: "Marketing" },
+  { slug: "mastering-money-management", title: "Mastering Money Manag...", image: "/courses/Frame (5).png", author: "purepearl studio", rating: 4.2, level: "Beginner", price: 25, lessons: 17, duration: "2h 16min", comments: 59, category: "Finance" },
+  { slug: "from-idea-to-startup", title: "From Idea to Startup Succ...", image: "/courses/Frame (6).png", author: "purepearl studio", rating: 4.5, level: "Beginner", price: 25, lessons: 17, duration: "2h 16min", comments: 59, category: "Music" },
 ];
 
 const CATEGORIES = [
